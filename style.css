@@ -98,7 +98,7 @@ footer {
 
 @keyframes neonPulse {
   from {
-    text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
+    text-shadow: 0 0 10px #a600ff, 0 0 20px #ff003c;
   }
   to {
     text-shadow: 0 0 20px #ff3b6a, 0 0 40px #6a00ff;
