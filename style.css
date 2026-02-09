@@ -79,3 +79,51 @@ footer {
   color: #aaa;
   font-size: 14px;
 }
+/* ===== 動畫基礎 ===== */
+.card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== 標題霓虹呼吸 ===== */
+.hero h1 {
+  animation: neonPulse 2.5s infinite alternate;
+}
+
+@keyframes neonPulse {
+  from {
+    text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
+  }
+  to {
+    text-shadow: 0 0 20px #ff3b6a, 0 0 40px #6a00ff;
+  }
+}
+
+/* ===== 玩家卡強化 ===== */
+.player {
+  position: relative;
+  overflow: hidden;
+}
+
+.player::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,0,90,0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.player:hover::after {
+  opacity: 1;
+}
+
+.player:hover {
+  transform: scale(1.05) translateY(-6px);
+}

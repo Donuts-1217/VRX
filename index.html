@@ -16,7 +16,7 @@
   <section class="card">
     <h2>戰隊介紹</h2>
     <p>
-      VRX 是活躍於 Roblox《Rivals》的競技戰隊，  
+      VRX戰隊 是活躍於 Roblox《Rivals》的競技戰隊，  
       專注於反應、戰術與團隊默契。  
       我們不打娛樂局，只打勝利。
     </p>
@@ -25,8 +25,8 @@
   <section class="card">
     <h2>核心成員</h2>
     <div class="players">
-      <div class="player">VRX | Leader</div>
-      <div class="player">VRX | Fragger</div>
+      <div class="player">VRX_ZHUTI</div>
+      <div class="player">VRX</div>
       <div class="player">VRX | Support</div>
       <div class="player">VRX | Clutch</div>
     </div>
@@ -44,6 +44,19 @@
   <footer>
     © 2026 VRX Rivals Team
   </footer>
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => observer.observe(card));
+</script>
 
 </body>
 </html>
