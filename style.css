@@ -98,7 +98,7 @@ footer {
 
 @keyframes neonPulse {
   from {
-    text-shadow: 0 0 10px #a600ff, 0 0 20px #ff003c;
+    text-shadow: 0 0 10px #a600ff, 0 0 20px #ff00a2;
   }
   to {
     text-shadow: 0 0 20px #ff3b6a, 0 0 40px #ff00ff;
@@ -239,4 +239,60 @@ footer {
   margin: 0;
   font-size: 14px;
   color: #ddd;
+}
+/* ===== Tier List ===== */
+.tierlist h2 {
+  color: #ff3b6a;
+  margin-bottom: 20px;
+}
+
+.tier {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+}
+
+/* 標籤 */
+.label {
+  width: 70px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 8px 0;
+  margin-right: 16px;
+}
+
+/* 項目 */
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.item {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.4);
+  font-size: 14px;
+}
+
+/* 不同 Tier 顏色 */
+.t0 .label {
+  background: linear-gradient(135deg, #ff003c, #ff8a00);
+  box-shadow: 0 0 15px rgba(255, 120, 0, 0.8);
+}
+
+.t05 .label {
+  background: linear-gradient(135deg, #ff5f9e, #9b5cff);
+}
+
+.t1 .label {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.t2 .label {
+  background: linear-gradient(135deg, #888, #444);
 }
