@@ -109,20 +109,16 @@
     });
 </script>
 
-  <h2>加入 VRX Discord</h2>
-  <p>
-    想加入 VRX Rivals 戰隊、約戰或交流？  
-    點下面加入我們的 Discord。
-  </p>
 
-  <a
-    class="discord-btn"
-    href="https://discord.gg/7VSDqfd3MB"
-    target="_blank"
-  >
+<section class="card dc-card">
+  <h2>Discord 成員數</h2>
+  <div class="dc-count">
+    🟣 在線：<span id="dc-members">載入中...</span>
+  </div>
+  <a class="discord-btn" href="https://discord.gg/7VSDqfd3MB" target="_blank">
     加入 Discord
   </a>
-  </section>
+</section>
 
 <section class="card">
   <h2>比賽時間線</h2>
@@ -175,6 +171,18 @@
   }, { threshold: 0.2 });
 
   cards.forEach(card => observer.observe(card));
+</script>
+<script>
+const SERVER_ID = "1400000206027751464"; // 伺服器ID，不是邀請碼
+fetch(`https://discord.com/api/guilds/${SERVER_ID}/widget.json`)
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("dc-members").innerText =
+      `${data.presence_count} 人在線 / ${data.members.length} 人總數`;
+  })
+  .catch(() => {
+    document.getElementById("dc-members").innerText = "無法取得資料";
+  });
 </script>
 
 </body>

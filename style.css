@@ -320,27 +320,52 @@ footer {
 .dc-count span {
   color: #ff3b6a;
 }
-/* ===== Discord 區塊 ===== */
-.discord {
+/* Discord 卡片 */
+.dc-card {
+  background: rgba(0, 0, 0, 0.4); /* 半透明深色底 */
+  padding: 25px;
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(88, 101, 242, 0.4); /* 霓虹外框 */
   text-align: center;
+  width: 300px;          /* 固定寬度 */
+  margin: 20px auto;     /* 置中 */
+  color: #fff;
+}
+
+/* 標題 */
+.dc-card h2 {
+  color: #5865f2; /* Discord 紫藍色 */
+  margin-bottom: 18px;
+  font-size: 20px;
+}
+
+/* 人數文字 */
+.dc-count {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.dc-count span {
+  color: #ff3b6a; /* 突出顏色 */
 }
 
 /* Discord 按鈕 */
 .discord-btn {
   display: inline-block;
-  margin-top: 20px;
-  padding: 14px 36px;
-  font-size: 16px;
+  padding: 12px 28px;
   font-weight: bold;
   color: #fff;
   text-decoration: none;
-  border-radius: 999px;
+  border-radius: 999px; /* 圓角膠囊 */
   background: linear-gradient(135deg, #5865f2, #404eed);
   box-shadow: 0 0 20px rgba(88, 101, 242, 0.6);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .discord-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 35px rgba(88, 101, 242, 0.9);
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(88, 101, 242, 0.9);
 }
+
