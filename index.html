@@ -67,22 +67,23 @@
   <div class="tier t0">
     <span class="label">T0</span>
     <div class="items">
-      <span class="item">VRXZ_bluecakedodo</span>
+      <span class="item">VRXZ_cockroach</span>
       <span class="item">VRX_badcat</span>
+      <span class="item">VRXZ_DRALS2486</span>
     </div>
   </div>
 
   <div class="tier t05">
     <span class="label">T0.5</span>
     <div class="items">
-      <span class="item">VRX | Sniper</span>
+      <span class="item"></span>
     </div>
   </div>
 
   <div class="tier t1">
     <span class="label">T1</span>
     <div class="items">
-      <span class="item">VRXZ_DRALS2486</span>
+      <span class="item"></span>
       <span class="item">VRX | Entry</span>
     </div>
   </div>
@@ -94,16 +95,20 @@
     </div>
   </div>
 </section>
-<!-- WidgetBot Chat -->
-<script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
-<widgetbot
-  server="1400000206027751464"
-  channel="1400000206027751466"
-  width="350"
-  height="500">
-</widgetbot>
+<script>
+  // 把 YOUR_SERVER_ID 換成你的 Discord 伺服器 ID
+  fetch("https://discord.com/api/guilds/1400000206027751464/widget.json")
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("dc-online").innerText = data.presence_count;
+      document.getElementById("dc-total").innerText = data.members.length;
+    })
+    .catch(() => {
+      document.getElementById("dc-online").innerText = "?";
+      document.getElementById("dc-total").innerText = "?";
+    });
+</script>
 
-  <section class="card discord">
   <h2>加入 VRX Discord</h2>
   <p>
     想加入 VRX Rivals 戰隊、約戰或交流？  
