@@ -320,3 +320,27 @@ footer {
 .dc-count span {
   color: #ff3b6a;
 }
+/* ===== Discord 區塊 ===== */
+.discord {
+  text-align: center;
+}
+
+/* Discord 按鈕 */
+.discord-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 36px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #5865f2, #404eed);
+  box-shadow: 0 0 20px rgba(88, 101, 242, 0.6);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.discord-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(88, 101, 242, 0.9);
+}
