@@ -296,3 +296,7 @@ footer {
 .t2 .label {
   background: linear-gradient(135deg, #888, #444);
 }
+widgetbot {
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
+}
