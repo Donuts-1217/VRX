@@ -317,22 +317,6 @@ footer {
   color: #fff;
 }
 
-.dc-count span {
-  color: #ff3b6a;
-}
-/* Discord 卡片 */
-.dc-card {
-  background: rgba(0, 0, 0, 0.4); /* 半透明深色底 */
-  padding: 25px;
-  border-radius: 16px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 0 40px rgba(88, 101, 242, 0.4); /* 霓虹外框 */
-  text-align: center;
-  width: 300px;          /* 固定寬度 */
-  margin: 20px auto;     /* 置中 */
-  color: #fff;
-}
-
 /* 標題 */
 .dc-card h2 {
   color: #5865f2; /* Discord 紫藍色 */
@@ -340,25 +324,33 @@ footer {
   font-size: 20px;
 }
 
-/* 人數文字 */
-.dc-count {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 15px;
+
+.discord-section {
+  background: rgba(0,0,0,0.4);
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;      /* 文字 & 按鈕居中 */
+  max-width: 600px;        /* 固定寬度 */
+  margin: 40px auto;       /* 置中整個區塊 */
 }
 
-.dc-count span {
-  color: #ff3b6a; /* 突出顏色 */
+.discord-section h2 {
+  color: #fff;
+  margin-bottom: 12px;
 }
 
-/* Discord 按鈕 */
+.discord-section p {
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
 .discord-btn {
   display: inline-block;
   padding: 12px 28px;
   font-weight: bold;
   color: #fff;
   text-decoration: none;
-  border-radius: 999px; /* 圓角膠囊 */
+  border-radius: 999px;
   background: linear-gradient(135deg, #5865f2, #404eed);
   box-shadow: 0 0 20px rgba(88, 101, 242, 0.6);
   transition: transform 0.2s, box-shadow 0.2s;
@@ -368,4 +360,3 @@ footer {
   transform: scale(1.05);
   box-shadow: 0 0 30px rgba(88, 101, 242, 0.9);
 }
-
