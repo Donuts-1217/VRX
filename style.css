@@ -405,7 +405,26 @@ footer {
   pointer-events: none;
 }
 
+.site-hud {
+  position: fixed;
+  top: 14px;
+  right: 18px;
+  z-index: 9999;
+
+  font-size: 12px;
+  letter-spacing: .4px;
+  color: rgba(255,255,255,.75);
+
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(8px);
+  padding: 6px 10px;
+  border-radius: 10px;
+
+  pointer-events: none;
+  user-select: none;
+}
+
 .site-hud span {
-  color: #ff3b6a; /* 你網站的強調色 */
+  color: #5865f2;
   font-weight: 600;
 }

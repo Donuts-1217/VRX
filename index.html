@@ -220,11 +220,20 @@
   Visits <span id="visit-count">—</span>
 </div>
 
+<div class="site-hud">
+  Members <span id="hud-count">—</span>
+</div>
+
 <script>
-fetch("https://api.countapi.xyz/hit/hansenchiang-vrx/visits")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("visit-count").innerText = data.value;
+const SERVER_ID = "你的伺服器ID";
+
+fetch(`https://discord.com/api/guilds/${SERVER_ID}/widget.json`)
+  .then(r => r.json())
+  .then(d => {
+    document.getElementById("hud-count").innerText = d.members.length;
+  })
+  .catch(() => {
+    document.getElementById("hud-count").innerText = "?";
   });
 </script>
 
