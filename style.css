@@ -153,15 +153,6 @@ footer {
   margin-bottom: 30px;
 }
 
-/* 圓點 */
-.dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  margin-left: 13px;
-  margin-right: 20px;
-  margin-top: 6px;
-}
 
 /* 勝負顏色 */
 .timeline-item.win .dot {
