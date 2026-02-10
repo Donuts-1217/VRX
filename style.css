@@ -353,7 +353,7 @@ footer {
 }
 /* 團員名單卡片 */
 .members-card {
-  max-width: 600px;
+  max-width: 900px;
   margin: 40px auto;
 }
 
@@ -385,4 +385,11 @@ footer {
 .member-list::-webkit-scrollbar-thumb {
   background: #ff3b6a;
   border-radius: 6px;
+}
+
+.work {
+  font-size: 18px;
+}
+.id {
+  font-size: 16px;
 }
