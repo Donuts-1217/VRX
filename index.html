@@ -194,10 +194,7 @@
 
     <!-- 再多都沒關係 -->
   </div>
-    <div class="visit-top-right">
-    造訪次數:
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=VRX-site" />
-  </div>
+
 
 </section>
 
@@ -218,6 +215,17 @@
   }, { threshold: 0.2 });
 
   cards.forEach(card => observer.observe(card));
+</script>
+<div class="site-hud">
+  Visits <span id="visit-count">—</span>
+</div>
+
+<script>
+fetch("https://api.countapi.xyz/hit/hansenchiang-vrx/visits")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("visit-count").innerText = data.value;
+  });
 </script>
 
 </body>
