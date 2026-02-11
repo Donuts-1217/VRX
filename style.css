@@ -428,3 +428,34 @@ footer {
   color: #5865f2;
   font-weight: 600;
 }
+
+/* 合作社群卡片 */
+.partners-card {
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+/* 連結清單 */
+.partners {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+/* 單一合作社群 */
+.partner {
+  display: block;
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255,255,255,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.partner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(255, 59, 106, 0.6);
+}
