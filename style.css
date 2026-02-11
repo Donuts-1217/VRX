@@ -459,3 +459,45 @@ footer {
   transform: translateY(-4px);
   box-shadow: 0 0 20px rgba(255, 59, 106, 0.6);
 }
+/* 合作社群直向滑動 */
+.partners-scroll-vertical {
+  max-height: 260px;    /* 🔴 你可以調整高度 */
+  overflow-y: auto;     /* 🔴 上下滑 */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 6px;   /* 留給滾動條 */
+}
+
+/* 滾動條美化（可選） */
+.partners-scroll-vertical::-webkit-scrollbar {
+  width: 6px;
+}
+.partners-scroll-vertical::-webkit-scrollbar-thumb {
+  background: #ff3b6a;
+  border-radius: 6px;
+}
+
+/* 單一合作社群卡（你原本的可沿用） */
+.partner {
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255,255,255,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.partner small {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.partner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 59, 106, 0.6);
+}
