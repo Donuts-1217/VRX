@@ -428,76 +428,43 @@ footer {
   color: #5865f2;
   font-weight: 600;
 }
-
-/* 合作社群卡片 */
-.partners-card {
-  max-width: 600px;
-  margin: 40px auto;
-}
-
-/* 連結清單 */
-.partners {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
-}
-
-/* 單一合作社群 */
-.partner {
-  display: block;
-  padding: 14px;
-  border-radius: 12px;
-  text-align: center;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-  background: rgba(255,255,255,0.06);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.partner:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 20px rgba(255, 59, 106, 0.6);
-}
-/* 合作社群直向滑動 */
-.partners-scroll-vertical {
-  max-height: 260px;    /* 🔴 你可以調整高度 */
-  overflow-y: auto;     /* 🔴 上下滑 */
+/* 按鈕容器（直向滑） */
+.partners-buttons {
+  max-height: 260px;     /* 超過就滑 */
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding-right: 6px;   /* 留給滾動條 */
+  gap: 10px;
+  padding-right: 6px;
 }
 
-/* 滾動條美化（可選） */
-.partners-scroll-vertical::-webkit-scrollbar {
+/* 單一按鈕 */
+.partner-btn {
+  display: block;
+  width: 100%;           /* 🔴 每個一整行 */
+  padding: 12px 16px;
+  border-radius: 10px;
+  text-align: left;      /* 官網感 */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+}
+
+/* 滑過效果 */
+.partner-btn:hover {
+  background: rgba(255,255,255,0.16);
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px rgba(255, 59, 106, 0.5);
+}
+
+/* 滾動條（選用） */
+.partners-buttons::-webkit-scrollbar {
   width: 6px;
 }
-.partners-scroll-vertical::-webkit-scrollbar-thumb {
+.partners-buttons::-webkit-scrollbar-thumb {
   background: #ff3b6a;
   border-radius: 6px;
-}
-
-/* 單一合作社群卡（你原本的可沿用） */
-.partner {
-  padding: 14px;
-  border-radius: 12px;
-  text-align: center;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-  background: rgba(255,255,255,0.06);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.partner small {
-  display: block;
-  margin-top: 6px;
-  font-size: 12px;
-  opacity: 0.8;
-}
-
-.partner:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(255, 59, 106, 0.6);
 }
