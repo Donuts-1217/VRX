@@ -201,7 +201,52 @@
     </a>
   </div>
 </section>
+<script>
+const API_KEY = 'AIzaSyAGfWrVKwGN8eQoo22d106tTwyqJUCYZ48';
+const channelIds = [
+  'UC16XQx1_Fp-fD-W2z8fWzVQ', // 隊員 1
+  'UCLN2ZJHFTS1DwGng7Cajlzw', // 隊員 2
+];
 
+async function checkLiveStreams() {
+  const container = document.getElementById('live-container');
+  const noLiveMsg = document.getElementById('no-live-msg');
+  let hasLive = false;
+
+  for (const cid of channelIds) {
+    try {
+      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${cid}&type=video&eventType=live&key=${API_KEY}`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.items && data.items.length > 0) {
+        hasLive = true;
+        const videoId = data.items[0].id.videoId;
+        const channelTitle = data.items[0].snippet.channelTitle;
+
+        const liveHtml = `
+          <div class="live-item">
+            <h3><span class="live-dot"></span>${channelTitle}</h3>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        `;
+        container.insertAdjacentHTML('beforeend', liveHtml);
+      }
+    } catch (error) {
+      console.error("API 請求失敗", error);
+    }
+  }
+
+  if (hasLive) {
+    noLiveMsg.style.display = 'none';
+  }
+}
+
+// 頁面載入後執行
+window.addEventListener('load', checkLiveStreams);
+</script>
 
 <section class="card members-card">
   <h2>團員名單</h2>
