@@ -243,7 +243,13 @@ async function checkLiveStreams() {
     noLiveMsg.style.display = 'none';
   }
 }
-
+<section class="card">
+  <h2>🔴 隊員直播中</h2>
+  <div id="no-live-msg" style="text-align: center; padding: 20px; color: #666; font-style: italic;">
+    目前暫無隊員正在直播...
+  </div>
+  <div id="live-container" class="live-grid"></div>
+</section>
 // 頁面載入後執行
 window.addEventListener('load', checkLiveStreams);
 </script>
