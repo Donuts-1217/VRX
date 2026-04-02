@@ -38,10 +38,6 @@ body {
   box-shadow: 0 0 40px rgba(255, 0, 60, 0.15);
 }
 
-.card.show {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
 
 .card h2 {
   color: #ff3b6a;
