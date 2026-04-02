@@ -29,9 +29,13 @@ body {
 
 /* CARD */
 .card {
-  opacity: 0;
-  transform: translateY(60px) scale(0.95);
-  transition: all 0.8s ease;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(255, 0, 60, 0.15);
 }
 
 .card.show {
