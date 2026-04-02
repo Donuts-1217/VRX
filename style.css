@@ -28,16 +28,22 @@ body {
 }
 
 /* CARD */
+/* 尋找這段並修改 */
 .card {
-  max-width: 900px;
-  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
   padding: 30px;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 0 40px rgba(255, 0, 60, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  
+  /* --- 修改這裡 --- */
+  opacity: 1;             /* 從 0 改成 1 */
+  transform: translateY(0); /* 從 40px 改成 0 */
+  /* ---------------- */
+  
+  transition: all 0.8s ease;
 }
-
 
 .card h2 {
   color: #ff3b6a;
