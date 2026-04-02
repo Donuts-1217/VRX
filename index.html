@@ -353,19 +353,20 @@ window.addEventListener("load", () => {
   updateMemberCount();
 
   // 🔁 每1小時更新
-  setInterval(updateMemberCount, 3600000);
+  setInterval(updateMemberCount, 600000);
 
 });
 </script>
 
-<section class="card" style="text-align: center;">
-  <p>總訪問次數：<span id="visit-count" style="color: #ff3b6a; font-weight: bold;">0</span> 次</p>
-</section>
 
-  <footer>
-    © 2026 VRX Rivals clan 有做網頁的需求嗎? DC:hansen0203 此網站是由chatGPT支援開發
 
-  </footer>
+<footer>
+  <p>© 2026 VRX Rivals clan | 網頁需求 DC:hansen0203</p>
+  <!-- 小小地顯示在下面 -->
+  <p style="font-size: 11px; opacity: 0.5; margin-top: 5px;">
+    系統紀錄訪問次數：<span id="visit-count">0</span>
+  </p>
+</footer>
 </body>
 <audio id="click-sound" src="https://www.myinstants.com/media/sounds/mouse-click.mp3"></audio>
 
