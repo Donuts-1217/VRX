@@ -16,97 +16,162 @@
 </script>
 
 <body>
-    <script>
-    const API_KEY = 'AIzaSyAGfWrVKwGN8eQoo22d106tTwyqJUCYZ48';
-    const channelIds = [
-      'UC16XQx1_Fp-fD-W2z8fWzVQ',// xorlaaa
-      'UC87m-v4B_h1E4M55K1I6Htg',// ZHUTI-x7m
-      'UC0kxqnw8wtOdFyWLMTwRZSw',//W1NT3R
-      'UCPU4gXFULDnAN0JURiNNeDQ',//kanatauser
-      'UCz5akPm2o1gUcHwb1Y0OKcQ',//ayo拉蛇
-      'UCJW3BoOvFFMf7W77uD7VJGw',//Joey91
-      'UCNxsm8WIrQfLmhWRX6h9Xvg',//vrx yu
-      'UCZ7-O_rCOPJjGgpc4b_aVTA',//Archi
-      'UCjTUTSThp5YtxEJmWJtL6RQ',//error
-      'UCS3HctFy3ytY3CzY80cgAQg',//ken
-      'UCCOB7CeTgHc6bDpy5NqEMHA',//LF
-
-    ];
-
-    async function checkLiveStreams() {
-      const container = document.getElementById('live-container');
-      const noLiveMsg = document.getElementById('no-live-msg');
-      if (!container) return;
-
-      let hasLive = false;
-      container.innerHTML = ''; 
-
-      for (const cid of channelIds) {
-        try {
-          const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${cid}&type=video&eventType=live&key=${API_KEY}`;
-          const response = await fetch(url);
-          const data = await response.json();
-
-          if (data.items && data.items.length > 0) {
-            hasLive = true;
-            const videoId = data.items[0].id.videoId;
-            const channelTitle = data.items[0].snippet.channelTitle;
-
-            const liveHtml = `
-              <div class="live-item" style="margin-bottom: 20px;">
-                <h3 style="color: #ff3b6a;">
-                  <span class="live-dot"></span> LIVE ${channelTitle}
-                </h3>
-                <div class="video-container" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
-                  <iframe src="https://www.youtube.com/embed/${videoId}" 
-                    style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:8px; border:1px solid #ff3b6a;" 
-                    frameborder="0" allowfullscreen></iframe>
-                </div>
-              </div>`;
-            container.insertAdjacentHTML('beforeend', liveHtml);
-          }
-        } catch (error) {
-          console.error("API 請求失敗", error);
-        }
-      }
-      noLiveMsg.style.display = hasLive ? 'none' : 'block';
-    }
-    window.addEventListener('load', checkLiveStreams);
-  </script>
-  
   <script>
+/* ===================== */
+/* 🔴 YouTube 直播檢測 */
+/* ===================== */
 
+const API_KEY = '你的API_KEY';
+const channelIds = [
+  'UC16XQx1_Fp-fD-W2z8fWzVQ',
+  'UC87m-v4B_h1E4M55K1I6Htg',
+  'UC0kxqnw8wtOdFyWLMTwRZSw',
+  'UCPU4gXFULDnAN0JURiNNeDQ',
+  'UCz5akPm2o1gUcHwb1Y0OKcQ',
+  'UCJW3BoOvFFMf7W77uD7VJGw',
+  'UCNxsm8WIrQfLmhWRX6h9Xvg',
+  'UCZ7-O_rCOPJjGgpc4b_aVTA',
+  'UCjTUTSThp5YtxEJmWJtL6RQ',
+  'UCS3HctFy3ytY3CzY80cgAQg',
+  'UCCOB7CeTgHc6bDpy5NqEMHA'
+];
 
-    const cards = document.querySelectorAll('.card');
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-          }
-        });
-      }, { threshold: 0.1 });
-    cards.forEach(card => observer.observe(card));
+async function checkLiveStreams() {
+  const container = document.getElementById('live-container');
+  const noLiveMsg = document.getElementById('no-live-msg');
 
-    let visits = localStorage.getItem("visits") || 0;
-    visits++;
-    localStorage.setItem("visits", visits);
-    document.getElementById("visit-count").innerText = visits;
+  let hasLive = false;
+  container.innerHTML = '';
 
+  for (const cid of channelIds) {
+    try {
+      const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${cid}&type=video&eventType=live&key=${API_KEY}`;
+      const res = await fetch(url);
+      const data = await res.json();
 
-    window.addEventListener("scroll", () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const percent = (scrollTop / height) * 100;
-      document.getElementById("scroll-bar").style.width = percent + "%";
-    });
+      if (data.items && data.items.length > 0) {
+        hasLive = true;
 
+        const videoId = data.items[0].id.videoId;
+        const channelTitle = data.items[0].snippet.channelTitle;
 
-    const sound = document.getElementById("click-sound");
-    if (sound) {
-      sound.currentTime = 0;
-      sound.play().catch(() => {});
+        container.insertAdjacentHTML('beforeend', `
+          <div class="live-item">
+            <h3><span class="live-dot"></span> LIVE ${channelTitle}</h3>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>
+            </div>
+          </div>
+        `);
+      }
+    } catch (err) {
+      console.error(err);
     }
-  </script>
+  }
+
+  noLiveMsg.style.display = hasLive ? 'none' : 'block';
+}
+
+
+/* ===================== */
+/* ✨ 卡片動畫 */
+/* ===================== */
+
+function initObserver() {
+  const cards = document.querySelectorAll('.card');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => observer.observe(card));
+}
+
+
+/* ===================== */
+/* 👀 訪問數 */
+/* ===================== */
+
+function initVisits() {
+  let visits = parseInt(localStorage.getItem("visits")) || 0;
+  visits++;
+  localStorage.setItem("visits", visits);
+
+  const el = document.getElementById("visit-count");
+  if (el) el.innerText = visits;
+}
+
+
+/* ===================== */
+/* 📊 滾動條 */
+/* ===================== */
+
+function initScrollBar() {
+  window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const percent = (scrollTop / height) * 100;
+
+    const bar = document.getElementById("scroll-bar");
+    if (bar) bar.style.width = percent + "%";
+  });
+}
+
+
+/* ===================== */
+/* 🔊 點擊音效 */
+/* ===================== */
+
+function initSound() {
+  document.querySelectorAll("a, .player, .feature").forEach(el => {
+    el.addEventListener("click", () => {
+      const sound = document.getElementById("click-sound");
+      if (sound) {
+        sound.currentTime = 0;
+        sound.play().catch(() => {});
+      }
+    });
+  });
+}
+
+
+/* ===================== */
+/* 👥 Discord 人數 */
+/* ===================== */
+
+function initDiscord() {
+  const SERVER_ID = "1400000206027751464";
+
+  fetch(`https://discord.com/api/guilds/${SERVER_ID}/widget.json`)
+    .then(r => r.json())
+    .then(d => {
+      const el = document.getElementById("hud-count");
+      if (el) el.innerText = d.members?.length || "?";
+    })
+    .catch(() => {
+      const el = document.getElementById("hud-count");
+      if (el) el.innerText = "?";
+    });
+}
+
+
+/* ===================== */
+/* 🚀 初始化 */
+/* ===================== */
+
+window.addEventListener("load", () => {
+  checkLiveStreams();
+  initObserver();
+  initVisits();
+  initScrollBar();
+  initSound();
+  initDiscord();
+});
+</script>
   
 
   <div id="scroll-bar"></div>
