@@ -17,7 +17,7 @@
 
 <body>
   <div class="site-hud">
-    Members: <span id="hud-count">—</span><br>
+    DCMembers: <span id="hud-count">—</span><br>
     Online: <span id="online-count">—</span>
   </div>
   <div id="scroll-bar"></div>
@@ -302,20 +302,6 @@
     if (bar) bar.style.width = percent + "%";
   });
 
-
-  /* ===================== */
-  /* 🔊 點擊音效（防炸版） */
-  /* ===================== */
-
-  document.querySelectorAll("a, .player, .feature").forEach(el => {
-    el.addEventListener("click", () => {
-      const sound = document.getElementById("click-sound");
-      if (sound) {
-        sound.currentTime = 0;
-        sound.play().catch(() => {}); // 防止報錯
-      }
-    });
-  });
 
   
 </script>
