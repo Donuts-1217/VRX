@@ -29,13 +29,14 @@ body {
 
 /* CARD */
 .card {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 0 40px rgba(255, 0, 60, 0.15);
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  transition: all 0.8s ease;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .card h2 {
@@ -58,9 +59,10 @@ body {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+
 .player:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 20px rgba(255, 0, 90, 0.6);
+  transform: scale(1.08) translateY(-6px);
+  box-shadow: 0 0 25px rgba(255, 0, 90, 0.9);
 }
 
 /* LIST */
@@ -534,4 +536,38 @@ footer {
   width: 100%;
   height: 100%;
   border-radius: 8px;
+}
+/* 直播中的小圓點閃爍效果 */
+.live-dot {
+  height: 10px;
+  width: 10px;
+  background-color: #ff0000;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+  box-shadow: 0 0 8px #ff0000;
+  animation: pulse-red 1.5s infinite;
+}
+
+@keyframes pulse-red {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+.live-item h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+#scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: #ff3b6a;
+  width: 0%;
+  z-index: 9999;
 }
