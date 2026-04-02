@@ -266,16 +266,28 @@
 
   <script>
   /* ===================== */
-  /* 👀 訪問數 */
+  /* 👀 訪問數修正版 */
   /* ===================== */
+  window.addEventListener("load", () => {
+    const visitEl = document.getElementById("visit-count");
+    
+    if (visitEl) {
+      // 讀取舊的次數，如果沒有就從 0 開始
+      let visits = parseInt(localStorage.getItem("visits")) || 0;
+      visits++;
+      // 存回瀏覽器
+      localStorage.setItem("visits", visits);
+      // 顯示在網頁上
+      visitEl.innerText = visits;
+    } else {
+      console.warn("找不到 id='visit-count' 的元素，請檢查 HTML！");
+    }
+  });
+</script>
 
-  let visits = parseInt(localStorage.getItem("visits")) || 0;
-  visits++;
-  localStorage.setItem("visits", visits);
 
-  const visitEl = document.getElementById("visit-count");
-  if (visitEl) visitEl.innerText = visits;
-
+<script>
+ 
 
   /* ===================== */
   /* 📊 滾動進度條 */
@@ -346,11 +358,13 @@ window.addEventListener("load", () => {
 });
 </script>
 
-
+<section class="card" style="text-align: center;">
+  <p>總訪問次數：<span id="visit-count" style="color: #ff3b6a; font-weight: bold;">0</span> 次</p>
+</section>
 
   <footer>
     © 2026 VRX Rivals clan 有做網頁的需求嗎? DC:hansen0203 此網站是由chatGPT支援開發
-    <p>訪問次數：<span id="visit-count">0</span></p>
+
   </footer>
 </body>
 <audio id="click-sound" src="https://www.myinstants.com/media/sounds/mouse-click.mp3"></audio>
