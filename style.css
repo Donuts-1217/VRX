@@ -30,18 +30,20 @@ body {
 /* CARD */
 /* 尋找這段並修改 */
 .card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
+  max-width: 900px;
+  margin: 40px auto;
   padding: 30px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
-  
-  /* --- 修改這裡 --- */
-  opacity: 1;             /* 從 0 改成 1 */
-  transform: translateY(0); /* 從 40px 改成 0 */
-  /* ---------------- */
-  
+
+  /* 強制顯示，不依賴 JavaScript 動畫 */
+  opacity: 1 !important;             
+  transform: translateY(0) !important; 
+  display: block !important;
+
   transition: all 0.8s ease;
 }
 
