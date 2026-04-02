@@ -16,7 +16,10 @@
 </script>
 
 <body>
-
+<div class="site-hud">
+  Members: <span id="hud-count">—</span><br>
+  Online: <span id="online-count">—</span>
+</div>
   <div id="scroll-bar"></div>
 
   <header class="hero">
@@ -262,49 +265,6 @@
   </script>
 
   <script>
-    const cards = document.querySelectorAll('.card');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
-    cards.forEach(card => observer.observe(card));
-  </script>
-
-  <div class="site-hud" style="top:14px; right:18px;">Visits <span id="visit-count">—</span></div>
-  <div class="site-hud" style="top:45px; right:18px;">Members <span id="hud-count">—</span></div>
-
-
-  <script>
-    window.addEventListener("load", () => {
-
-  /* ===================== */
-  /* 👥 Discord 成員數 */
-  /* ===================== */
-
-     const SERVER_ID = "1400000206027751464";
-
-      fetch(`https://discord.com/api/guilds/${SERVER_ID}/widget.json`)
-        .then(res => res.json())
-        .then(data => {
-          const el = document.getElementById("hud-count");
-
-          if (!el) return;
-
-          if (data && data.members) {
-            el.innerText = data.members.length;
-          } else {
-            el.innerText = "?";
-          }
-        })
-        .catch(() => {
-          const el = document.getElementById("hud-count");
-          if (el) el.innerText = "?";
-        });
-
-
   /* ===================== */
   /* 👀 訪問數 */
   /* ===================== */
@@ -345,8 +305,47 @@
     });
   });
 
+  
+</script>
+<script>
+window.addEventListener("load", () => {
+
+  const INVITE_CODE = "4tK8dwQBbm"; // 你的邀請碼
+
+  function updateMemberCount() {
+    fetch(`https://discord.com/api/v10/invites/${INVITE_CODE}?with_counts=true`)
+      .then(res => res.json())
+      .then(data => {
+        const el = document.getElementById("hud-count");
+        if (!el) return;
+
+        if (data && data.approximate_member_count) {
+          el.innerText = data.approximate_member_count;
+        } else {
+          el.innerText = "?";
+        }
+
+        // 🔥 如果你要在線人數（可選）
+        const onlineEl = document.getElementById("online-count");
+        if (onlineEl && data.approximate_presence_count !== undefined) {
+          onlineEl.innerText = data.approximate_presence_count;
+        }
+      })
+      .catch(() => {
+        const el = document.getElementById("hud-count");
+        if (el) el.innerText = "?";
+      });
+  }
+
+  // 初始
+  updateMemberCount();
+
+  // 🔁 每1小時更新
+  setInterval(updateMemberCount, 3600000);
+
 });
 </script>
+
 
   <footer>
     © 2026 VRX Rivals clan 有做網頁的需求嗎? DC:hansen0203 此網站是由chatGPT支援開發
