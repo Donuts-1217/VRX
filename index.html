@@ -14,21 +14,6 @@
   gtag('js', new Date());
   gtag('config', 'G-8R8648H53V');
 </script>
-<script>
-  // 建立一個觀察器來偵測卡片是否進入畫面
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show'); // 當卡片出現，加上 .show
-      }
-    });
-  }, { threshold: 0.1 }); // 只要露出一點點就觸發
-
-  // 抓取所有的卡片進行觀察
-  document.querySelectorAll('.card').forEach(card => {
-    observer.observe(card);
-  });
-</script>
 
 <body>
   <div class="site-hud">
