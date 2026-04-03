@@ -262,6 +262,9 @@
       noLiveMsg.style.display = hasLive ? 'none' : 'block';
     }
     window.addEventListener('load', checkLiveStreams);
+
+    setInterval(checkLiveStreams, 300000);
+    
   </script>
 
   <script>
