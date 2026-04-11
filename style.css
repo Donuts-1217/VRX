@@ -760,59 +760,72 @@ footer {
 .terms-card-privacy h2 { color: #00d4ff; }
 
 /* ========================================= */
-/* 🏠 首頁特色卡片與按鈕強化 (完全版)         */
+/* 🏠 首頁特色區塊 - 最終整齊修正版           */
 /* ========================================= */
 
+/* 1. 確保大容器排版整齊 (六宮格) */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 自動對齊 */
+  gap: 25px;
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+/* 2. 單個卡片格式化 */
 .feature {
   background: rgba(255, 255, 255, 0.08);
-  padding: 30px 20px;
-  border-radius: 16px;
-  text-align: center; /* 恢復你想要的置中格式 */
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 35px 25px !important; /* 增加間距 */
+  border-radius: 18px;
+  text-align: center !important; /* 文字置中 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   
-  /* 讓卡片內的內容自動撐開，確保按鈕對齊底部 */
+  /* 讓卡片高度一致，按鈕對齊底部 */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 280px; 
+  min-height: 300px; 
+  border-left: none !important; /* 移除干擾的邊條 */
 }
 
 .feature:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 25px rgba(255, 59, 90, 0.6);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(255, 59, 106, 0.4);
 }
 
 .feature h3 {
-  margin-top: 0;
+  margin: 0 0 15px 0;
   color: #ff3b6a;
   font-size: 22px;
 }
 
 .feature p {
-  color: #ddd;
-  font-size: 14px;
+  color: #ccc;
+  font-size: 15px;
   line-height: 1.6;
-  margin-bottom: 20px;
-  flex-grow: 1; /* 讓文字區塊自動填滿空間，確保按鈕在同一水平線 */
+  margin-bottom: 25px;
+  flex-grow: 1; /* 自動推開按鈕 */
 }
 
-/* 恢復原本帥氣的藍色膠囊按鈕 */
+/* 3. 藍色膠囊按鈕 (原本最帥的樣式) */
 .discord-btn {
   display: inline-block;
-  padding: 10px 24px;
+  padding: 12px 28px;
   font-weight: bold;
   color: #fff !important;
   text-decoration: none;
-  border-radius: 999px; /* 膠囊形 */
+  border-radius: 50px; /* 完美圓角 */
   background: linear-gradient(135deg, #5865f2, #404eed);
-  box-shadow: 0 0 15px rgba(88, 101, 242, 0.5);
+  box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
   transition: all 0.2s ease;
   font-size: 14px;
-  width: fit-content;
+  border: none;
 }
 
 .discord-btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(88, 101, 242, 0.8);
+  box-shadow: 0 6px 25px rgba(88, 101, 242, 0.7);
+  filter: brightness(1.1);
 }
