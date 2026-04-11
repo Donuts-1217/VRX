@@ -606,84 +606,123 @@ footer {
 /* 🤖 機器人頁面專屬樣式 */
 /* ===================== */
 
+/* 容器寬度限制 */
 .bot-page-container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
+/* 機器人卡片網格佈局 */
 .bot-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  gap: 25px;
+  margin-top: 30px;
 }
 
+/* 基礎卡片微調 */
 .bot-card {
   position: relative;
-  border-left: 5px solid #ff3b6a;
-  transition: transform 0.3s ease, background 0.3s ease;
   text-align: left;
+  border-left: 6px solid #ff3b6a; /* 預設顏色 */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .bot-card:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
+/* 標籤樣式 */
 .bot-tag {
   display: inline-block;
-  background: #ff3b6a;
-  color: #fff;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
+/* 標題與內文微調 */
 .bot-card h2 {
-  margin: 5px 0;
-  font-size: 1.5rem;
+  margin: 0 0 5px 0;
+  color: #fff;
 }
 
 .bot-card h3 {
-  color: #aaa;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  color: #00d4ff; /* 亮藍色強調 */
   margin-bottom: 15px;
 }
 
+.bot-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* 功能列表樣式 */
 .bot-features {
-  margin-top: 15px;
+  margin-top: 20px;
   padding-left: 20px;
-  list-style: disc;
-  color: #bbb;
-  font-size: 14px;
+  list-style: none;
 }
 
 .bot-features li {
-  margin-bottom: 8px;
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #bbb;
 }
 
-/* 每個機器人的專屬顏色 */
+.bot-features li::before {
+  content: "▹";
+  position: absolute;
+  left: -20px;
+  color: #ff3b6a;
+}
+
+/* --- 機器人分類顏色 --- */
+
+/* 1號機：管理層專用 (紅色系) */
 .staff-card { border-left-color: #ff3b6a; }
-.staff-card .bot-tag { background: #ff3b6a; }
+.staff-card .bot-tag { background: #ff3b6a; color: #fff; }
+.staff-card .bot-features li::before { color: #ff3b6a; }
 
+/* 2號機：安全防護 (紫色系) */
 .security-card { border-left-color: #6a00ff; }
-.security-card .bot-tag { background: #6a00ff; }
+.security-card .bot-tag { background: #6a00ff; color: #fff; }
+.security-card h3 { color: #a27cff; }
+.security-card .bot-features li::before { color: #6a00ff; }
 
-.rpg-card { border-left-color: #00d4ff; }
-.rpg-card .bot-tag { background: #00d4ff; }
+/* 3號機：RPG遊戲 (青色系) */
+.rpg-card { border-left-color: #00ff9c; }
+.rpg-card .bot-tag { background: #00ff9c; color: #000; }
+.rpg-card h3 { color: #5effc4; }
+.rpg-card .bot-features li::before { color: #00ff9c; }
 
-/* 回首頁按鈕微調 */
-.secondary-btn {
-  background: rgba(255, 255, 255, 0.15) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+/* 技術規格區塊微調 */
+.tech-footer {
+  margin-top: 50px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
 }
 
-.tech-footer {
-  margin-top: 40px;
-  text-align: center;
-  opacity: 0.8;
+/* 回首頁按鈕樣式優化 */
+.secondary-btn {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: #fff;
 }
