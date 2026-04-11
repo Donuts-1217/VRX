@@ -760,39 +760,40 @@ footer {
 .terms-card-privacy h2 { color: #00d4ff; }
 
 /* ========================================= */
-/* 🏠 首頁特色區塊 - 三個一排且對齊寬度版     */
+/* 🏠 首頁特色區塊 - 寬度對齊 & 三欄排版      */
 /* ========================================= */
 
-/* 1. 容器總寬度與 .card 一致 (900px) */
+/* 1. 容器總寬度強制對齊 .card 的 900px */
 .features {
   display: grid;
-  /* 👈 關鍵：固定切成三欄，每欄平分空間 */
+  /* 強制切成三欄，每欄寬度平均分配 */
   grid-template-columns: repeat(3, 1fr); 
-  gap: 15px;             /* 卡片之間的間距 */
-  max-width: 900px;      /* 👈 確保這整排加起來是 900px */
-  margin: 20px auto;     /* 置中 */
-  padding: 0;            /* 移除側邊內距讓它邊對邊對齊 */
+  gap: 15px;             /* 方塊之間的間距 */
+  max-width: 900px;      /* 👈 關鍵：這裡要跟你的 .card 寬度一模一樣 */
+  margin: 20px auto;     /* 置中對齊 */
+  padding: 0;            /* 移除內距，確保左右邊緣跟大卡片對齊 */
 }
 
-/* 2. 單個卡片樣式 */
+/* 2. 小方塊卡片格式化 */
 .feature {
   background: rgba(255, 255, 255, 0.08);
-  padding: 20px 15px !important;
+  padding: 25px 15px !important;
   border-radius: 15px;
   text-align: center !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   
+  /* 讓卡片內部垂直排列，按鈕對齊底部 */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 250px;     /* 控制卡片高度，可依需求調整 */
+  min-height: 260px;     /* 調小高度，讓框框看起來更精緻 */
   border-left: none !important;
 }
 
 .feature:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(255, 59, 106, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 59, 106, 0.3);
 }
 
 .feature h3 {
@@ -806,13 +807,27 @@ footer {
   font-size: 13px;
   line-height: 1.5;
   margin-bottom: 15px;
-  flex-grow: 1;
+  flex-grow: 1; /* 自動推開空間 */
 }
 
-/* 3. 手機版自動變成一排一個 (避免太擠) */
+/* 3. 藍色膠囊按鈕微調 (適合小方塊) */
+.discord-btn {
+  display: inline-block;
+  padding: 8px 20px;
+  font-weight: bold;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #5865f2, #404eed);
+  box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+/* 手機版自動變成一排一個，避免寬度太窄 */
 @media (max-width: 768px) {
   .features {
     grid-template-columns: 1fr;
-    max-width: 90% !important;
+    max-width: 90%;
   }
 }
