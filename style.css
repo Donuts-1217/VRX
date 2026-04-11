@@ -759,10 +759,25 @@ footer {
 .terms-card-tos h2 { color: #ff3b6a; }
 .terms-card-privacy h2 { color: #00d4ff; }
 
-/* 2. 單個卡片格式化 (調小尺寸版本) */
+/* ========================================= */
+/* 🏠 首頁特色區塊 - 三個一排且對齊寬度版     */
+/* ========================================= */
+
+/* 1. 容器總寬度與 .card 一致 (900px) */
+.features {
+  display: grid;
+  /* 👈 關鍵：固定切成三欄，每欄平分空間 */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 15px;             /* 卡片之間的間距 */
+  max-width: 900px;      /* 👈 確保這整排加起來是 900px */
+  margin: 20px auto;     /* 置中 */
+  padding: 0;            /* 移除側邊內距讓它邊對邊對齊 */
+}
+
+/* 2. 單個卡片樣式 */
 .feature {
   background: rgba(255, 255, 255, 0.08);
-  padding: 20px 15px !important; /* 👈 原本是 35px，調小內邊距讓框框變窄 */
+  padding: 20px 15px !important;
   border-radius: 15px;
   text-align: center !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -771,31 +786,33 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  
-  /* 👈 調整這裡：原本是 320px，改為 240px 左右會讓框框變矮 */
-  min-height: 240px; 
+  min-height: 250px;     /* 控制卡片高度，可依需求調整 */
   border-left: none !important;
 }
 
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 59, 106, 0.3);
+}
+
 .feature h3 {
-  margin: 0 0 10px 0; /* 縮小標題下方的間距 */
+  margin: 0 0 10px 0;
   color: #ff3b6a;
-  font-size: 20px; /* 稍微調小字體 */
+  font-size: 18px;
 }
 
 .feature p {
   color: #ccc;
-  font-size: 14px; /* 稍微調小字體 */
+  font-size: 13px;
   line-height: 1.5;
-  margin-bottom: 15px; /* 縮小文字與按鈕間的間距 */
+  margin-bottom: 15px;
   flex-grow: 1;
 }
 
-/* 按鈕也稍微縮小一點點點，看起來更精緻 */
-.discord-btn {
-  padding: 8px 20px; 
-  font-size: 13px;
-  border-radius: 50px;
-  background: linear-gradient(135deg, #5865f2, #404eed);
-  /* ...其餘發光樣式保持不變... */
+/* 3. 手機版自動變成一排一個 (避免太擠) */
+@media (max-width: 768px) {
+  .features {
+    grid-template-columns: 1fr;
+    max-width: 90% !important;
+  }
 }
