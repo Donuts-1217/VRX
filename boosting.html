@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>VRX | 代刷服務項目</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="site-hud">
+    DCMembers: <span id="hud-count">—</span><br>
+    Online: <span id="online-count">—</span>
+  </div>
+  <div id="scroll-bar"></div>
+
+  <header class="hero">
+    <h1>VRX 代刷服務</h1>
+    <p>專業實力保證，詳情請至 Discord 開單詢問</p>
+  </header>
+
+  <div class="bot-grid" style="max-width: 1000px; margin: 40px auto; padding: 0 20px;">
+    
+    <div class="bot-card staff-card">
+      <div class="bot-tag">RANKING</div>
+      <div class="bot-icon-bg">🏆</div>
+      <h2>牌位提升</h2>
+      <h3>Rank Boosting</h3>
+      <p>無論是想要脫離銅銀坑，還是衝刺頂尖排名，我們都能提供最穩定的代打服務。</p>
+      <hr class="bot-divider">
+      <div class="feature-grid">
+        <div class="f-item"><span>⚔️</span> 指定牌位達成</div>
+        <div class="f-item"><span>🛡️</span> 淨勝場代打</div>
+        <div class="f-item"><span>🔥</span> 季末衝分</div>
+        <div class="f-item"><span>💎</span> 陪打服務</div>
+      </div>
+    </div>
+
+    <div class="bot-card security-card">
+      <div class="bot-tag">STATISTICS</div>
+      <div class="bot-icon-bg">📊</div>
+      <h2>數據優化</h2>
+      <h3>Stats & Kills</h3>
+      <p>針對個人生涯數據進行美化，大幅提升擊殺數與帳號門面。</p>
+      <hr class="bot-divider">
+      <div class="feature-grid">
+        <div class="f-item"><span>🎯</span> 擊殺數(Kills)提升</div>
+        <div class="f-item"><span>📈</span> K/D 數值優化</div>
+        <div class="f-item"><span>🎖️</span> 特定成就解鎖</div>
+        <div class="f-item"><span>👑</span> 勝率(WR)提升</div>
+        <div class="f-item"><span>💎</span> 掛機玻璃</div>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="card" style="border-left: 5px solid #5865f2;">
+    <h2 style="color: #5865f2;">💬 如何詢問價格？</h2>
+    <p>由於代刷項目會根據帳號目前的數據、目標高度及剩餘時間而有所不同。</p>
+    <p>請點擊下方按鈕加入 Discord，並前往 <b>#代刷開單</b> 頻道，我們將有專人為您報價。</p>
+    <a href="https://discord.gg/4tK8dwQBbm" target="_blank" class="discord-btn" style="margin-top: 15px;">
+      前往 Discord 開單
+    </a>
+  </section>
+
+
+  <footer>
+    <p>© 2026 VRX Rivals clan | 網頁需求 DC:hansen0203</p>
+  </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      const INVITE_CODE = "4tK8dwQBbm";
+      function updateMemberCount() {
+        fetch(`https://discord.com/api/v10/invites/${INVITE_CODE}?with_counts=true`)
+          .then(res => res.json())
+          .then(data => {
+            const el = document.getElementById("hud-count");
+            const onlineEl = document.getElementById("online-count");
+            if (el && data.approximate_member_count) el.innerText = data.approximate_member_count;
+            if (onlineEl && data.approximate_presence_count !== undefined) onlineEl.innerText = data.approximate_presence_count;
+          });
+      }
+      updateMemberCount();
+    });
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const percent = (scrollTop / height) * 100;
+      const bar = document.getElementById("scroll-bar");
+      if (bar) bar.style.width = percent + "%";
+    });
+  </script>
+</body>
+</html>
