@@ -603,17 +603,17 @@ footer {
 }
 
 /* ===================== */
-/* 🤖 機器人頁面專屬樣式 */
+/* 🤖 機器人頁面專屬擴充樣式 */
 /* ===================== */
 
-/* 容器寬度限制 */
+/* 機器人專區容器 */
 .bot-page-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
-/* 機器人卡片網格佈局 */
+/* 網格佈局：在電腦上三格並排，手機上一格 */
 .bot-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -621,108 +621,149 @@ footer {
   margin-top: 30px;
 }
 
-/* 基礎卡片微調 */
+/* 基礎機器人卡片 */
 .bot-card {
   position: relative;
   text-align: left;
-  border-left: 6px solid #ff3b6a; /* 預設顏色 */
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  background: rgba(255, 255, 255, 0.05);
+  /* 繼承你的 .card 效果，但增加左邊條 */
+  border-left: 6px solid #ff3b6a; 
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* 懸浮時的發光與上浮效果 */
 .bot-card:hover {
   transform: translateY(-10px);
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 40px rgba(255, 59, 106, 0.2);
 }
 
-/* 標籤樣式 */
+/* 頂部標籤 */
 .bot-tag {
   display: inline-block;
   padding: 4px 12px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: bold;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
   text-transform: uppercase;
   margin-bottom: 15px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-/* 標題與內文微調 */
+/* 字體顏色優化 */
 .bot-card h2 {
-  margin: 0 0 5px 0;
-  color: #fff;
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.6rem;
 }
 
 .bot-card h3 {
-  font-size: 1.1rem;
-  color: #00d4ff; /* 亮藍色強調 */
+  font-size: 1rem;
   margin-bottom: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .bot-card p {
-  font-size: 15px;
+  font-size: 14.5px;
   line-height: 1.6;
-  color: #ddd;
+  color: rgba(255, 255, 255, 0.8);
 }
 
-/* 功能列表樣式 */
+/* 功能清單：使用自定義符號 */
 .bot-features {
   margin-top: 20px;
-  padding-left: 20px;
+  padding-left: 0;
   list-style: none;
 }
 
 .bot-features li {
   position: relative;
-  margin-bottom: 10px;
+  padding-left: 25px;
+  margin-bottom: 12px;
   font-size: 14px;
-  color: #bbb;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .bot-features li::before {
-  content: "▹";
+  content: "⚡";
   position: absolute;
-  left: -20px;
-  color: #ff3b6a;
+  left: 0;
+  font-size: 12px;
 }
 
-/* --- 機器人分類顏色 --- */
+/* --- 機器人分類配色 (對應你的 bot.html) --- */
 
-/* 1號機：管理層專用 (紅色系) */
+/* 1號機：管理 (紅色) */
 .staff-card { border-left-color: #ff3b6a; }
 .staff-card .bot-tag { background: #ff3b6a; color: #fff; }
-.staff-card .bot-features li::before { color: #ff3b6a; }
+.staff-card h3 { color: #ff3b6a; }
 
-/* 2號機：安全防護 (紫色系) */
-.security-card { border-left-color: #6a00ff; }
-.security-card .bot-tag { background: #6a00ff; color: #fff; }
+/* 2號機：防炸 (紫色) */
+.security-card { border-left-color: #a27cff; }
+.security-card .bot-tag { background: #a27cff; color: #fff; }
 .security-card h3 { color: #a27cff; }
-.security-card .bot-features li::before { color: #6a00ff; }
+.security-card:hover { box-shadow: 0 15px 40px rgba(162, 124, 255, 0.2); }
 
-/* 3號機：RPG遊戲 (青色系) */
-.rpg-card { border-left-color: #00ff9c; }
-.rpg-card .bot-tag { background: #00ff9c; color: #000; }
-.rpg-card h3 { color: #5effc4; }
-.rpg-card .bot-features li::before { color: #00ff9c; }
+/* 3號機：RPG遊戲 (水藍色) */
+.rpg-card { border-left-color: #00d4ff; }
+.rpg-card .bot-tag { background: #00d4ff; color: #000; }
+.rpg-card h3 { color: #00d4ff; }
+.rpg-card:hover { box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2); }
 
-/* 技術規格區塊微調 */
+/* 下方技術資訊 */
 .tech-footer {
-  margin-top: 50px;
+  margin-top: 60px;
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 30px;
+  padding-top: 40px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-/* 回首頁按鈕樣式優化 */
+/* 回首頁按鈕：繼承原本按鈕風格並微調 */
 .secondary-btn {
   display: inline-block;
   background: rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 20px;
 }
 
 .secondary-btn:hover {
   background: rgba(255, 255, 255, 0.2) !important;
   border-color: #fff;
+  transform: scale(1.05);
+}
+
+/* 1. 讓背景圖示若隱若現 */
+.bot-icon-bg {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 80px;
+    opacity: 0.1; /* 非常淡，增加質感 */
+    pointer-events: none;
+}
+
+/* 2. 讓邊框發光，看起來像在通電 */
+.staff-card {
+    box-shadow: inset 0 0 15px rgba(255, 59, 106, 0.1);
+}
+.security-card {
+    box-shadow: inset 0 0 15px rgba(162, 124, 255, 0.1);
+}
+.rpg-card {
+    box-shadow: inset 0 0 15px rgba(0, 212, 255, 0.1);
+}
+
+/* 3. 讓標題更有質感 */
+.bot-card h2 {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+/* 4. 修改字體行高，讓閱讀不壓抑 */
+.bot-card p {
+    line-height: 1.8;
+    margin-bottom: 20px;
 }
