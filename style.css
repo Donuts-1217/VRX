@@ -670,26 +670,36 @@ footer {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* 功能清單：使用自定義符號 */
-.bot-features {
-  margin-top: 20px;
-  padding-left: 0;
-  list-style: none;
+/* 新的標籤排版 */
+.feature-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+  justify-content: flex-start; /* 讓標籤靠左對齊 */
 }
 
-.bot-features li {
-  position: relative;
-  padding-left: 25px;
-  margin-bottom: 12px;
+.pill {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 5px 12px;
+  border-radius: 50px; /* 圓角藥丸形狀 */
+  font-size: 13px;
+  color: #eee;
+  transition: all 0.3s ease;
+}
+
+.pill:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  border-color: #ff3b6a; /* 根據不同卡片顏色可以微調 */
+}
+
+/* 讓卡片內的文字不要太死板 */
+.bot-card p {
+  margin-bottom: 20px;
+  opacity: 0.8;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.bot-features li::before {
-  content: "⚡";
-  position: absolute;
-  left: 0;
-  font-size: 12px;
 }
 
 /* --- 機器人分類配色 (對應你的 bot.html) --- */
