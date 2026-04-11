@@ -918,3 +918,58 @@ footer {
   background: linear-gradient(to right, rgba(255,255,255,0.2), transparent);
   margin-bottom: 15px;
 }
+
+/* --- 🤖 機器人功能網格 (Feature Grid) --- */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 強制變成一左一右兩格 */
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.f-item {
+  background: rgba(255, 255, 255, 0.05); /* 微透明背景 */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* 細邊框 */
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.f-item span {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+/* 滑鼠移上去的發光與浮起效果 */
+.f-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 讓機器人卡片的對齊更像首頁 */
+.bot-card {
+  text-align: left !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.bot-card p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 15px;
+  min-height: 40px; /* 確保三張卡片高度整齊 */
+}
+
+.bot-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255,255,255,0.2), transparent);
+  margin-bottom: 15px;
+}
