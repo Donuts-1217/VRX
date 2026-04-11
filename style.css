@@ -760,34 +760,34 @@ footer {
 .terms-card-privacy h2 { color: #00d4ff; }
 
 /* ========================================= */
-/* 🏠 首頁特色區塊 - 寬度對齊 & 高度縮短版    */
+/* 🏠 首頁特色區塊 - 極致精簡對齊版           */
 /* ========================================= */
 
-/* 1. 容器總寬度對齊 900px，並縮小上下邊距 */
+/* 1. 容器保持 900px 寬度，並進一步縮小上下間距 */
 .features {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
-  gap: 12px;             /* 縮小間距 */
-  max-width: 900px;      /* 保持與大卡片一樣寬 */
-  margin: 10px auto;     /* 縮小上下外邊距 */
+  gap: 12px;
+  max-width: 900px; /* 👈 對齊上面的戰隊介紹卡片 */
+  margin: 10px auto; 
   padding: 0;
 }
 
-/* 2. 小方塊卡片格式化 (大幅縮短高度) */
+/* 2. 小方塊卡片格式化 (極致縮短高度) */
 .feature {
   background: rgba(255, 255, 255, 0.08);
-  padding: 15px 10px !important; /* 👈 大幅縮減內邊距 */
+  padding: 12px 10px !important; /* 👈 再次縮減上下內邊距 */
   border-radius: 12px;
   text-align: center !important;
   transition: transform 0.3s ease;
   
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center; /* 👈 改為置中排列，減少空白 */
   align-items: center;
   
-  /* 👈 關鍵：將最小高度調低，框框就不會那麼長 */
-  min-height: 180px;     
+  /* 👈 關鍵：最小高度降到 160px，這會讓框框變得很扁 */
+  min-height: 160px;     
   border-left: none !important;
 }
 
@@ -797,28 +797,28 @@ footer {
 }
 
 .feature h3 {
-  margin: 0 0 5px 0;    /* 縮小標題間距 */
+  margin: 0 0 4px 0;    /* 極小化標題間距 */
   color: #ff3b6a;
-  font-size: 16px;      /* 稍微調小標題字體 */
+  font-size: 16px; 
 }
 
 .feature p {
   color: #ccc;
-  font-size: 12px;      /* 調小內文字體 */
-  line-height: 1.4;
-  margin-bottom: 10px;  /* 縮小文字下方間距 */
-  flex-grow: 1;
+  font-size: 12px; 
+  line-height: 1.3;     /* 縮小行高 */
+  margin-bottom: 8px;   /* 縮小文字與按鈕的距離 */
+  /* 移除 flex-grow 以防止它過度撐開高度 */
 }
 
-/* 3. 藍色按鈕縮小版 */
+/* 3. 藍色按鈕極簡化 */
 .discord-btn {
   display: inline-block;
-  padding: 6px 15px;    /* 👈 按鈕變扁一點 */
+  padding: 5px 15px;    /* 👈 讓按鈕變得很扁 */
   font-weight: bold;
   color: #fff !important;
   text-decoration: none;
   border-radius: 50px;
   background: linear-gradient(135deg, #5865f2, #404eed);
-  font-size: 12px;      /* 按鈕字體調小 */
+  font-size: 11px;      /* 字體調小 */
   transition: all 0.2s ease;
 }
