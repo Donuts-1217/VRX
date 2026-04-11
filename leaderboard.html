@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>VRX | 排行榜</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="site-hud">
+    DCMembers: <span id="hud-count">—</span><br>
+    Online: <span id="online-count">—</span>
+  </div>
+  <div id="scroll-bar"></div>
+
+  <header class="hero">
+    <h1>VRX 排行榜</h1>
+    <p>實力分級與核心成員名單</p>
+  </header>
+
+  <section class="card tierlist">
+    <h2>VRX T榜(核心團員)</h2>
+    
+    <div class="tier t0">
+      <span class="label">T0</span>
+      <div class="items">
+        <span class="item">VRXZ_cockroach</span>
+        <span class="item">VRXZ_303</span>
+        <span class="item">VRXZ_302lyntrix</span>
+      </div>
+    </div>
+    
+    <div class="tier t05">
+      <span class="label">T0.5</span>
+      <div class="items">
+        <span class="item">VRXZ</span>
+        <span class="item">Boring_guy</span>
+      </div>
+    </div>
+    
+    <div class="tier t1">
+      <span class="label">T1</span>
+      <div class="items">
+        <span class="item">VRXZ_LF</span>
+        <span class="item">VRXZ_YU</span>
+        <span class="item">VRXZ_jason</span>
+        <span class="item">VRXZ_youhao</span>
+      </div>
+    </div>
+    
+    <div class="tier t2">
+      <span class="label">T2</span>
+      <div class="items">
+        <span class="item">VRXZ_ZHUTI</span>
+        <span class="item">VRXZ_katanauser</span>
+        <span class="item">VRXZ_Elloit</span>
+        <span class="item">VRXZ_Bhfhggfg</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <a href="index.html" class="discord-btn" style="background: linear-gradient(135deg, #ff3b6a, #ff003c);">返回首頁</a>
+  </section>
+
+  <footer>
+    <p>© 2026 VRX Rivals clan | 網頁需求 DC:hansen0203</p>
+  </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      const INVITE_CODE = "4tK8dwQBbm";
+      function updateMemberCount() {
+        fetch(`https://discord.com/api/v10/invites/${INVITE_CODE}?with_counts=true`)
+          .then(res => res.json())
+          .then(data => {
+            const el = document.getElementById("hud-count");
+            const onlineEl = document.getElementById("online-count");
+            if (el && data.approximate_member_count) el.innerText = data.approximate_member_count;
+            if (onlineEl && data.approximate_presence_count !== undefined) onlineEl.innerText = data.approximate_presence_count;
+          })
+          .catch(() => {
+            if (document.getElementById("hud-count")) document.getElementById("hud-count").innerText = "?";
+          });
+      }
+      updateMemberCount();
+    });
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const percent = (scrollTop / height) * 100;
+      const bar = document.getElementById("scroll-bar");
+      if (bar) bar.style.width = percent + "%";
+    });
+  </script>
+</body>
+</html>
