@@ -670,29 +670,50 @@ footer {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* 新的標籤排版 */
-.feature-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+/* 功能網格佈局 */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 兩列排版 */
+  gap: 10px;
   margin-top: 15px;
-  justify-content: flex-start; /* 讓標籤靠左對齊 */
 }
 
-.pill {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 5px 12px;
-  border-radius: 50px; /* 圓角藥丸形狀 */
+/* 每個功能小格 */
+.f-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 10px;
   font-size: 13px;
-  color: #eee;
+  color: #ddd;
+  display: flex;
+  align-items: center;
   transition: all 0.3s ease;
 }
 
-.pill:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.05);
-  border-color: #ff3b6a; /* 根據不同卡片顏色可以微調 */
+.f-item span {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+/* 滑鼠移上去的動態效果 */
+.f-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.02);
+  color: #fff;
+}
+
+/* 依據卡片類型給予不同發光顏色 */
+.staff-card .f-item:hover { border-color: #ff3b6a; box-shadow: 0 0 10px rgba(255, 59, 106, 0.2); }
+.security-card .f-item:hover { border-color: #6a00ff; box-shadow: 0 0 10px rgba(106, 0, 255, 0.2); }
+.rpg-card .f-item:hover { border-color: #00d4ff; box-shadow: 0 0 10px rgba(0, 212, 255, 0.2); }
+
+/* 分隔線 */
+.bot-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255,255,255,0.2), transparent);
+  margin: 20px 0;
 }
 
 /* 讓卡片內的文字不要太死板 */
