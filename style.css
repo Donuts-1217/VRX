@@ -766,171 +766,84 @@ footer {
   transform: scale(1.05);
 }
 
-/* 1. 讓背景圖示若隱若現 */
-.bot-icon-bg {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 80px;
-    opacity: 0.1; /* 非常淡，增加質感 */
-    pointer-events: none;
-}
-
-/* 2. 讓邊框發光，看起來像在通電 */
-.staff-card {
-    box-shadow: inset 0 0 15px rgba(255, 59, 106, 0.1);
-}
-.security-card {
-    box-shadow: inset 0 0 15px rgba(162, 124, 255, 0.1);
-}
-.rpg-card {
-    box-shadow: inset 0 0 15px rgba(0, 212, 255, 0.1);
-}
-
-/* 3. 讓標題更有質感 */
-.bot-card h2 {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    letter-spacing: 1px;
-}
-
-/* 4. 修改字體行高，讓閱讀不壓抑 */
-.bot-card p {
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-/* ========================================= */
-/* 🤖 機器人功能網格專屬 (Feature Grid)       */
-/* ========================================= */
-
-.feature-grid {
+/* --- 🤖 機器人佈局容器 --- */
+.bot-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 兩列並排 */
-  gap: 12px;
-  margin-top: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
 }
 
-.f-item {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 10px 12px;
-  border-radius: 12px;
-  font-size: 13px;
-  color: #ccc;
-  display: flex;
-  align-items: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.f-item span {
-  margin-right: 10px;
-  font-size: 16px;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
-}
-
-/* 滑鼠移上去的發光與微動效果 */
-.f-item:hover {
-  background: rgba(255, 255, 255, 0.12);
-  transform: translateY(-2px);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-/* 根據機器人分類給予不同邊框顏色 */
-.staff-card .f-item:hover { border-color: #ff3b6a; box-shadow: 0 5px 15px rgba(255, 59, 106, 0.2); }
-.security-card .f-item:hover { border-color: #6a00ff; box-shadow: 0 5px 15px rgba(106, 0, 255, 0.2); }
-.rpg-card .f-item:hover { border-color: #00d4ff; box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2); }
-
-/* 修正卡片整體排版 */
+/* --- 🤖 機器人卡片主體 --- */
 .bot-card {
-  text-align: left !important;
+  position: relative;
+  text-align: left !important; /* 強制靠左對齊，排版更專業 */
+  border-left: 5px solid #fff;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bot-card h2 {
+  margin: 10px 0;
+  font-size: 24px;
+}
+
+.bot-card h3 {
+  font-size: 16px;
+  opacity: 0.7;
+  margin-bottom: 15px;
+  color: #fff;
 }
 
 .bot-card p {
   font-size: 14px;
   opacity: 0.8;
+  line-height: 1.6;
   margin-bottom: 20px;
-  min-height: 45px; /* 讓三張卡片的介紹高度一致，排版更整齊 */
+  min-height: 45px; /* 確保三張卡片文字高度一致 */
 }
 
+/* 卡片上方的標籤 (Staff Only, Security 等) */
+.bot-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+
+/* 背景裝飾大圖標 */
+.bot-icon-bg {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 60px;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* 分隔線 */
 .bot-divider {
   border: 0;
   height: 1px;
   background: linear-gradient(to right, rgba(255,255,255,0.2), transparent);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-/* --- 🤖 機器人頁面專屬：功能方塊網格 --- */
-
+/* --- 🤖 功能網格 (一格一格的設計) --- */
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 強制兩列並排 */
+  grid-template-columns: repeat(2, 1fr); /* 強制兩列排版 */
   gap: 10px;
-  margin-top: 15px;
 }
 
 .f-item {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 8px 10px;
-  border-radius: 10px;
-  font-size: 13px;
-  color: #ddd;
-  display: flex;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-.f-item span {
-  margin-right: 8px;
-  font-size: 16px;
-}
-
-/* 懸停效果：讓它有「按鈕感」 */
-.f-item:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-/* 讓機器人卡片的排版跟主頁一樣整齊 */
-.bot-card {
-  text-align: left !important; /* 內容改為靠左比較好讀 */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.bot-card p {
-  font-size: 14px;
-  opacity: 0.8;
-  margin-bottom: 15px;
-  min-height: 40px; /* 確保三張卡片的介紹高度一致 */
-}
-
-/* 分隔線樣式 */
-.bot-divider {
-  border: 0;
-  height: 1px;
-  background: linear-gradient(to right, rgba(255,255,255,0.2), transparent);
-  margin-bottom: 15px;
-}
-
-/* --- 🤖 機器人功能網格 (Feature Grid) --- */
-
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 強制變成一左一右兩格 */
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.f-item {
-  background: rgba(255, 255, 255, 0.05); /* 微透明背景 */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* 細邊框 */
   padding: 8px 10px;
   border-radius: 8px;
   font-size: 13px;
@@ -945,31 +858,29 @@ footer {
   font-size: 16px;
 }
 
-/* 滑鼠移上去的發光與浮起效果 */
+/* 滑鼠移上去的方塊效果 */
 .f-item:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
   color: #fff;
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* 讓機器人卡片的對齊更像首頁 */
-.bot-card {
-  text-align: left !important;
-  display: flex;
-  flex-direction: column;
-}
+/* --- 🎨 機器人分類顏色控制 --- */
 
-.bot-card p {
-  font-size: 14px;
-  opacity: 0.8;
-  margin-bottom: 15px;
-  min-height: 40px; /* 確保三張卡片高度整齊 */
-}
+/* 1號機 (紅) */
+.staff-card { border-left-color: #ff3b6a; }
+.staff-card .bot-tag { background: #ff3b6a; color: #fff; }
+.staff-card:hover { box-shadow: 0 10px 30px rgba(255, 59, 106, 0.2); }
+.staff-card .f-item:hover { border-color: #ff3b6a; }
 
-.bot-divider {
-  border: 0;
-  height: 1px;
-  background: linear-gradient(to right, rgba(255,255,255,0.2), transparent);
-  margin-bottom: 15px;
-}
+/* 2號機 (紫) */
+.security-card { border-left-color: #6a00ff; }
+.security-card .bot-tag { background: #6a00ff; color: #fff; }
+.security-card:hover { box-shadow: 0 10px 30px rgba(106, 0, 255, 0.2); }
+.security-card .f-item:hover { border-color: #6a00ff; }
+
+/* 3號機 (藍) */
+.rpg-card { border-left-color: #00d4ff; }
+.rpg-card .bot-tag { background: #00d4ff; color: #000; }
+.rpg-card:hover { box-shadow: 0 10px 30px rgba(0
