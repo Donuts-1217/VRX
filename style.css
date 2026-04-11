@@ -759,3 +759,154 @@ footer {
 .terms-card-tos h2 { color: #ff3b6a; }
 .terms-card-privacy h2 { color: #00d4ff; }
 
+/* ========================================= */
+/* 🏠 首頁特色卡片與按鈕強化 (完全版)         */
+/* ========================================= */
+
+/* 強制首頁卡片排版靠左 */
+.feature {
+  position: relative;
+  text-align: left !important;
+  border-left: 5px solid #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  padding: 20px !important;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+}
+
+.feature h3 {
+  margin: 10px 0;
+  font-size: 20px;
+  color: #ff3b6a;
+}
+
+.feature p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  min-height: 45px;
+}
+
+/* 讓按鈕連結滿寬 */
+.f-item-link {
+  text-decoration: none;
+  grid-column: span 2; /* 讓按鈕佔滿卡片 */
+}
+
+/* 分隔線與標籤 (沿用機器人頁面樣式) */
+.feature .bot-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255,255,255,0.2), transparent);
+  margin-bottom: 15px;
+}
+
+.feature .bot-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  width: fit-content;
+  color: #fff;
+}
+
+.feature .bot-icon-bg {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 50px;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* 功能方塊基本樣式 (沿用) */
+.feature .feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.feature .f-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 讓按鈕文字置中 */
+  transition: all 0.3s ease;
+}
+
+.feature .f-item span {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+/* === 🎨 每個卡片的專屬顏色與發光 === */
+
+/* 1. 活躍社群 (藍色 - Discord色) */
+.feature-community { border-left-color: #5865f2; }
+.feature-community .bot-tag { background: #5865f2; }
+.feature-community:hover { box-shadow: 0 10px 40px rgba(88, 101, 242, 0.25); }
+.feature-community .f-item:hover { 
+  border-color: #5865f2; 
+  background: rgba(88, 101, 242, 0.15); 
+  color: #fff;
+}
+
+/* 2. T榜 (金色) */
+.feature-leaderboard { border-left-color: #ffca28; }
+.feature-leaderboard .bot-tag { background: #ffca28; color: #000; }
+.feature-leaderboard:hover { box-shadow: 0 10px 40px rgba(255, 202, 40, 0.25); }
+.feature-leaderboard .f-item:hover { 
+  border-color: #ffca28; 
+  background: rgba(255, 202, 40, 0.15); 
+  color: #fff;
+}
+
+/* 3. 定期比賽 (紅色) */
+.feature-tournament { border-left-color: #ff3b6a; }
+.feature-tournament .bot-tag { background: #ff3b6a; }
+.feature-tournament:hover { box-shadow: 0 10px 40px rgba(255, 59, 106, 0.25); }
+.feature-tournament .f-item:hover { 
+  border-color: #ff3b6a; 
+  background: rgba(255, 59, 106, 0.15); 
+  color: #fff;
+}
+
+/* 4. 自製機器人 (紫色) */
+.feature-bot { border-left-color: #6a00ff; }
+.feature-bot .bot-tag { background: #6a00ff; }
+.feature-bot:hover { box-shadow: 0 10px 40px rgba(106, 0, 255, 0.25); }
+.feature-bot .f-item:hover { 
+  border-color: #6a00ff; 
+  background: rgba(106, 0, 255, 0.15); 
+  color: #fff;
+}
+
+/* 5. 不定期活動 (水藍) */
+.feature-event { border-left-color: #00d4ff; }
+.feature-event .bot-tag { background: #00d4ff; color: #000; }
+.feature-event:hover { box-shadow: 0 10px 40px rgba(0, 212, 255, 0.25); }
+.feature-event .f-item:hover { 
+  border-color: #00d4ff; 
+  background: rgba(0, 212, 255, 0.15); 
+  color: #fff;
+}
+
+/* 6. 代刷服務 (灰色) */
+.feature-service { border-left-color: #aaa; }
+.feature-service .bot-tag { background: #aaa; color: #000; }
+.feature-service:hover { box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1); }
+.feature-service .f-item:hover { 
+  border-color: #aaa; 
+  background: rgba(255, 255, 255, 0.1); 
+  color: #fff;
+}
