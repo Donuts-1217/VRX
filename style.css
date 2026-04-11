@@ -766,7 +766,7 @@ footer {
 /* 1. 確保大容器排版整齊 (六宮格) */
 .features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 自動對齊 */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   gap: 25px;
   margin: 40px auto;
   max-width: 1200px;
@@ -776,18 +776,18 @@ footer {
 /* 2. 單個卡片格式化 */
 .feature {
   background: rgba(255, 255, 255, 0.08);
-  padding: 35px 25px !important; /* 增加間距 */
+  padding: 35px 25px !important;
   border-radius: 18px;
-  text-align: center !important; /* 文字置中 */
+  text-align: center !important; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   
-  /* 讓卡片高度一致，按鈕對齊底部 */
+  /* 關鍵：讓卡片高度一致，按鈕對齊底部 */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 300px; 
-  border-left: none !important; /* 移除干擾的邊條 */
+  min-height: 320px; 
+  border-left: none !important; 
 }
 
 .feature:hover {
@@ -806,26 +806,26 @@ footer {
   font-size: 15px;
   line-height: 1.6;
   margin-bottom: 25px;
-  flex-grow: 1; /* 自動推開按鈕 */
+  flex-grow: 1; /* 自動推開按鈕，確保橫向對齊 */
 }
 
-/* 3. 藍色膠囊按鈕 (原本最帥的樣式) */
+/* 3. 藍色膠囊按鈕 */
 .discord-btn {
   display: inline-block;
   padding: 12px 28px;
   font-weight: bold;
   color: #fff !important;
   text-decoration: none;
-  border-radius: 50px; /* 完美圓角 */
+  border-radius: 50px; 
   background: linear-gradient(135deg, #5865f2, #404eed);
   box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
   transition: all 0.2s ease;
   font-size: 14px;
   border: none;
+  width: fit-content;
 }
 
 .discord-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 25px rgba(88, 101, 242, 0.7);
-  filter: brightness(1.1);
-}
+  filter: brightness(1.1);}
