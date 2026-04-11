@@ -763,7 +763,7 @@ footer {
 /* 🏠 首頁特色區塊 - 最終整齊修正版           */
 /* ========================================= */
 
-/* 1. 確保大容器排版整齊 (六宮格) */
+/* 1. 確保大容器排版為整齊的六宮格 */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -773,12 +773,12 @@ footer {
   padding: 0 20px;
 }
 
-/* 2. 單個卡片格式化 */
+/* 2. 單個卡片格式化 (恢復原本的置中與間距) */
 .feature {
   background: rgba(255, 255, 255, 0.08);
   padding: 35px 25px !important;
   border-radius: 18px;
-  text-align: center !important; 
+  text-align: center !important; /* 確保內容置中 */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   
   /* 關鍵：讓卡片高度一致，按鈕對齊底部 */
@@ -787,7 +787,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   min-height: 320px; 
-  border-left: none !important; 
+  border-left: none !important; /* 移除干擾格式的邊條 */
 }
 
 .feature:hover {
@@ -806,10 +806,10 @@ footer {
   font-size: 15px;
   line-height: 1.6;
   margin-bottom: 25px;
-  flex-grow: 1; /* 自動推開按鈕，確保橫向對齊 */
+  flex-grow: 1; /* 自動推開空間，確保所有按鈕水平對齊 */
 }
 
-/* 3. 藍色膠囊按鈕 */
+/* 3. 恢復原本帥氣的藍色膠囊按鈕 */
 .discord-btn {
   display: inline-block;
   padding: 12px 28px;
@@ -828,4 +828,5 @@ footer {
 .discord-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 25px rgba(88, 101, 242, 0.7);
-  filter: brightness(1.1);}
+  filter: brightness(1.1);
+}
