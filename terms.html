@@ -16,8 +16,9 @@
   </header>
 
   <div class="container bot-page-container">
-    <section class="card" style="text-align: left;">
-      <h2 style="color: #ff3b6a;">⚖️ 服務條款 (TOS)</h2>
+    
+    <section class="card terms-card-tos">
+      <h2>⚖️ 服務條款 (TOS)</h2>
       <p>當您使用豆腦特系列機器人或進入 VRX 相關平台時，即表示您同意以下條款：</p>
       <ul style="line-height: 1.8; color: #bbb;">
         <li><strong>使用限制：</strong> 禁止利用機器人進行任何形式的惡意攻擊、刷屏或嘗試破解程式碼。</li>
@@ -27,20 +28,24 @@
       </ul>
     </section>
 
-    <section class="card" style="text-align: left; border-left: 6px solid #00d4ff;">
-      <h2 style="color: #00d4ff;">🔒 隱私權政策 (Privacy Policy)</h2>
+    <section class="card terms-card-privacy">
+      <h2>🔒 隱私權政策 (Privacy Policy)</h2>
       <p>我們非常重視您的數據安全，以下是豆腦特機器人處理資訊的方式：</p>
       <ul style="line-height: 1.8; color: #bbb;">
         <li><strong>資料收集：</strong> 我們僅收集必要的 Discord ID、用戶名以及遊戲數據（如 RPG 等級、裝備）。</li>
         <li><strong>資料用途：</strong> 收集的資訊僅用於提供管理功能（1號機）、安全防護（2號機）及遊戲體驗（3號機）。</li>
-        <li><strong>第三方分享：</strong> 我們絕對不會將您的個人資訊分享、出售或轉讓給任何第三方。</li>
-        <li><strong>資料刪除：</strong> 若您希望刪除相關數據，請透過 VRX Discord 伺服器聯繫開發人員。</li>
+        <li><strong>第三方分享：</strong> 我們絕對不會將您的個人資訊分享、出售或洩漏給第三方，除非法律另有規定。</li>
+        <li><strong>資料刪除：</strong> 您可以隨時聯繫管理層要求刪除您的遊戲進度或相關數據。</li>
       </ul>
     </section>
+
   </div>
 
   <footer>
-    <p>© 2026 VRX Rivals clan | <a href="index.html">回到首頁</a></p>
+    <p>© 2026 VRX Rivals clan | 
+      <a href="index.html">首頁</a> | 
+      <a href="bot.html">機器人專區</a>
+    </p>
   </footer>
 
   <script>
@@ -48,7 +53,8 @@
       const scrollTop = document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const percent = (scrollTop / height) * 100;
-      document.getElementById("scroll-bar").style.width = percent + "%";
+      const bar = document.getElementById("scroll-bar");
+      if (bar) bar.style.width = percent + "%";
     });
   </script>
 </body>
