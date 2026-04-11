@@ -69,11 +69,15 @@
   </section>
 
   <section class="card">
-    <h2>🔴 隊員直播</h2>
-    <div id="no-live-msg" style="text-align: center; padding: 20px; color: #666; font-style: italic;">
-      目前暫無隊員正在直播...
+    <h2>🎬 VRX 戰隊宣傳片</h2>
+    <div class="promo-video-wrapper">
+      <iframe 
+        src="https://www.youtube.com/embed/8Hz9MaepLGU?rel=0" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
     </div>
-    <div id="live-container" class="live-grid"></div>
   </section>
 
   <section class="card">
@@ -205,65 +209,7 @@
 
 
 
-  <script>
-    const API_KEY = 'AIzaSyAGfWrVKwGN8eQoo22d106tTwyqJUCYZ48';
-    const channelIds = [
-      'UC87m-v4B_h1E4M55K1I6Htg',// ZHUTI-x7m
-      'UCPU4gXFULDnAN0JURiNNeDQ',//kanatauser
-      'UCz5akPm2o1gUcHwb1Y0OKcQ',//ayo拉蛇
-      'UCJW3BoOvFFMf7W77uD7VJGw',//Joey91
-      'UCNxsm8WIrQfLmhWRX6h9Xvg',//vrx yu
-      'UCZ7-O_rCOPJjGgpc4b_aVTA',//Archi
-      'UCjTUTSThp5YtxEJmWJtL6RQ',//error
-      'UCS3HctFy3ytY3CzY80cgAQg',//ken
-      'UCCOB7CeTgHc6bDpy5NqEMHA',//LF
 
-    ];
-
-    async function checkLiveStreams() {
-      const container = document.getElementById('live-container');
-      const noLiveMsg = document.getElementById('no-live-msg');
-      if (!container) return;
-
-      let hasLive = false;
-      container.innerHTML = ''; 
-
-      for (const cid of channelIds) {
-        try {
-          const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${cid}&type=video&eventType=live&key=${API_KEY}`;
-          const response = await fetch(url);
-          const data = await response.json();
-
-          if (data.items && data.items.length > 0) {
-            hasLive = true;
-            const videoId = data.items[0].id.videoId;
-            const channelTitle = data.items[0].snippet.channelTitle;
-
-            const liveHtml = `
-              <div class="live-item" style="margin-bottom: 20px;">
-                <h3 style="color: #ff3b6a;"><span class="live-dot"></span>${channelTitle}</h3>
-                <h3 style="color: #ff3b6a;">
-                  <span class="live-dot"></span> LIVE ${channelTitle}
-                </h3>
-                <div class="video-container" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
-                  <iframe src="https://www.youtube.com/embed/${videoId}" 
-                    style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:8px; border:1px solid #ff3b6a;" 
-                    frameborder="0" allowfullscreen></iframe>
-                </div>
-              </div>`;
-            container.insertAdjacentHTML('beforeend', liveHtml);
-          }
-        } catch (error) {
-          console.error("API 請求失敗", error);
-        }
-      }
-      noLiveMsg.style.display = hasLive ? 'none' : 'block';
-    }
-    window.addEventListener('load', checkLiveStreams);
-
-    setInterval(checkLiveStreams, 300000);
-
-  </script>
 
   <script>
   /* ===================== */
