@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>VRX | 定期比賽與活動</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="site-hud">
+    DCMembers: <span id="hud-count">—</span><br>
+    Online: <span id="online-count">—</span>
+  </div>
+  <div id="scroll-bar"></div>
+
+  <header class="hero">
+    <h1>VRX 定期比賽</h1>
+    <p>與各方高手交流，挑戰你的極限</p>
+  </header>
+
+  <div class="bot-grid" style="max-width: 1000px; margin: 40px auto; padding: 0 20px;">
+    <div class="bot-card staff-card">
+      <div class="bot-tag">TOURNAMENT</div>
+      <div class="bot-icon-bg">⚔️</div>
+      <h2>戰隊交流賽</h2>
+      <h3>Clan vs Clan</h3>
+      <p>與友好戰隊進行的對抗賽，測試隊伍默契與戰術配合。</p>
+      <hr class="bot-divider">
+      <div class="feature-grid">
+        <div class="f-item"><span>📅</span> 每月舉辦</div>
+        <div class="f-item"><span>👥</span> 團隊競技</div>
+        <div class="f-item"><span>🎁</span> 獲勝者獎金/點數</div>
+      </div>
+    </div>
+
+    <div class="bot-card security-card">
+      <div class="bot-tag">RANKED</div>
+      <div class="bot-icon-bg">🥇</div>
+      <h2>內部積分賽</h2>
+      <h3>Internal Ranked</h3>
+      <p>戰隊內部的排名爭奪賽，成績將會直接影響 T 榜的排名。</p>
+      <hr class="bot-divider">
+      <div class="feature-grid">
+        <div class="f-item"><span>📊</span> 積分制度</div>
+        <div class="f-item"><span>🎯</span> 實力分級</div>
+        <div class="f-item"><span>📜</span> T榜更新依據</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="card">
+    <h2>比賽時間線</h2>
+    <div class="timeline">
+      <div class="timeline-item win">
+        <div class="dot"></div>
+        <div class="content">
+          <span class="date">2025 / 11 / 16</span>
+          <span class="text">WIN vs NM戰隊</span>
+        </div>
+      </div>
+      <div class="timeline-item win">
+        <div class="dot"></div>
+        <div class="content">
+          <span class="date">2026 / 02 / 01</span>
+          <span class="text">WIN vs 1zy戰隊</span>
+        </div>
+      </div>
+      <div class="timeline-item win">
+        <div class="dot"></div>
+        <div class="content">
+          <span class="date">2026 / 02 / 05</span>
+          <span class="text">WIN vs SK戰隊</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" style="background: none; border: none; box-shadow: none;">
+    <div class="feature-grid" style="grid-template-columns: 1fr; max-width: 300px; margin: 0 auto;">
+      <a href="index.html" class="f-item" style="text-decoration: none; justify-content: center; padding: 15px; font-weight: bold; border-color: #ff3b6a; color: #ff3b6a;">
+        <span>🏠</span> 返回首頁
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 VRX Rivals clan | 網頁需求 DC:hansen0203</p>
+  </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      const INVITE_CODE = "4tK8dwQBbm";
+      function updateMemberCount() {
+        fetch(`https://discord.com/api/v10/invites/${INVITE_CODE}?with_counts=true`)
+          .then(res => res.json())
+          .then(data => {
+            const el = document.getElementById("hud-count");
+            const onlineEl = document.getElementById("online-count");
+            if (el && data.approximate_member_count) el.innerText = data.approximate_member_count;
+            if (onlineEl && data.approximate_presence_count !== undefined) onlineEl.innerText = data.approximate_presence_count;
+          });
+      }
+      updateMemberCount();
+    });
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const percent = (scrollTop / height) * 100;
+      const bar = document.getElementById("scroll-bar");
+      if (bar) bar.style.width = percent + "%";
+    });
+  </script>
+</body>
+</html>
