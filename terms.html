@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>VRX | 法律條款</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="scroll-bar"></div>
+
+  <header class="hero">
+    <h1>法律條款</h1>
+    <p>VRX 戰隊服務條款與隱私權政策</p>
+    <a href="index.html" class="discord-btn secondary-btn">← 回到首頁</a>
+  </header>
+
+  <div class="container bot-page-container">
+    <section class="card" style="text-align: left;">
+      <h2 style="color: #ff3b6a;">⚖️ 服務條款 (TOS)</h2>
+      <p>當您使用豆腦特系列機器人或進入 VRX 相關平台時，即表示您同意以下條款：</p>
+      <ul style="line-height: 1.8; color: #bbb;">
+        <li><strong>使用限制：</strong> 禁止利用機器人進行任何形式的惡意攻擊、刷屏或嘗試破解程式碼。</li>
+        <li><strong>行為規範：</strong> 於 RPG 遊戲（豆腦特3號）中禁止使用外掛或利用 Bug 牟利。</li>
+        <li><strong>免責聲明：</strong> 機器人開發團隊不對因技術故障或 Discord 平台端問題造成的資料損失負責。</li>
+        <li><strong>權利保留：</strong> VRX 管理層有權根據情況調整機器人功能或限制特定用戶的使用權限。</li>
+      </ul>
+    </section>
+
+    <section class="card" style="text-align: left; border-left: 6px solid #00d4ff;">
+      <h2 style="color: #00d4ff;">🔒 隱私權政策 (Privacy Policy)</h2>
+      <p>我們非常重視您的數據安全，以下是豆腦特機器人處理資訊的方式：</p>
+      <ul style="line-height: 1.8; color: #bbb;">
+        <li><strong>資料收集：</strong> 我們僅收集必要的 Discord ID、用戶名以及遊戲數據（如 RPG 等級、裝備）。</li>
+        <li><strong>資料用途：</strong> 收集的資訊僅用於提供管理功能（1號機）、安全防護（2號機）及遊戲體驗（3號機）。</li>
+        <li><strong>第三方分享：</strong> 我們絕對不會將您的個人資訊分享、出售或轉讓給任何第三方。</li>
+        <li><strong>資料刪除：</strong> 若您希望刪除相關數據，請透過 VRX Discord 伺服器聯繫開發人員。</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2026 VRX Rivals clan | <a href="index.html">回到首頁</a></p>
+  </footer>
+
+  <script>
+    window.addEventListener("scroll", () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const percent = (scrollTop / height) * 100;
+      document.getElementById("scroll-bar").style.width = percent + "%";
+    });
+  </script>
+</body>
+</html>
