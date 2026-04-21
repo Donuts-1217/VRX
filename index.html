@@ -193,7 +193,7 @@
 
   </div>
 
-  
+
   </section>
 
 
@@ -238,20 +238,7 @@
 
   
 
-window.addEventListener("load", () => {
 
-  const popup = document.getElementById("sponsor-popup");
-  const closeBtn = document.getElementById("close-popup");
-
-  // 進站時強制顯示
-  popup.style.display = "flex";
-
-  // 只有按按鈕才關閉
-  closeBtn.onclick = function () {
-    popup.style.display = "none";
-  };
-
-});
 window.addEventListener("load", () => {
 
   const INVITE_CODE = "4tK8dwQBbm"; // 你的邀請碼
@@ -286,6 +273,23 @@ window.addEventListener("load", () => {
 
   // 🔁 每1小時更新
   setInterval(updateMemberCount, 600000);
+
+});
+</script>
+
+<script>
+window.addEventListener("load", () => {
+
+  const popup = document.getElementById("sponsor-popup");
+  const closeBtn = document.getElementById("close-popup");
+
+  // 一進站強制顯示
+  popup.style.display = "flex";
+
+  // 只有按按鈕才關閉
+  closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
 
 });
 </script>
