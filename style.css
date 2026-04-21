@@ -889,3 +889,33 @@ footer {
   font-weight: bold;
   cursor: pointer;
 }
+
+
+@media (max-width: 768px) {
+
+  .sponsor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sponsor-box {
+    padding: 25px;
+    width: 94%;
+  }
+
+  .sponsor-card {
+    padding: 18px;
+  }
+
+  .sponsor-box h1 {
+    font-size: 26px;
+  }
+
+}
+
+.sponsor-card {
+  min-height: 90px;
+}
+
+.sponsor-card p {
+  font-size: 15px;
+}

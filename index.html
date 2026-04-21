@@ -233,12 +233,28 @@
     const bar = document.getElementById("scroll-bar");
     if (bar) bar.style.width = percent + "%";
   });
-  document.getElementById("close-popup").addEventListener("click", () => {
-  document.getElementById("sponsor-popup").style.display = "none";
-});
+  
 
   
 </script>
+
+<script>
+window.addEventListener("load", () => {
+
+  const popup = document.getElementById("sponsor-popup");
+  const closeBtn = document.getElementById("close-popup");
+
+  // 進站時強制顯示
+  popup.style.display = "flex";
+
+  // 只有按按鈕才關閉
+  closeBtn.onclick = function () {
+    popup.style.display = "none";
+  };
+
+});
+</script>
+
 <script>
 window.addEventListener("load", () => {
 
