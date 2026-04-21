@@ -832,3 +832,60 @@ footer {
     max-width: 90% !important;
   }
 }
+
+#sponsor-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.88);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.sponsor-box {
+  background: #111;
+  width: 92%;
+  max-width: 800px;
+  padding: 35px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 35px rgba(255,0,80,.4);
+}
+
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.sponsor-card {
+  background: rgba(255,255,255,.06);
+  padding: 20px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: white;
+  transition: .25s;
+}
+
+.sponsor-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,.12);
+}
+
+.sponsor-text {
+  color: #ccc;
+  margin: 20px 0;
+  line-height: 1.8;
+}
+
+#close-popup {
+  background: #ff3b6a;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
