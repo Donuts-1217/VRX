@@ -288,19 +288,15 @@ window.addEventListener("load", () => {
 </script>
 
 <script>
-window.addEventListener("load", () => {
-
+document.addEventListener("DOMContentLoaded", () => {
   const popup = document.getElementById("sponsor-popup");
   const closeBtn = document.getElementById("close-popup");
 
-  // 一進站強制顯示
   popup.style.display = "flex";
 
-  // 只有按按鈕才關閉
-  closeBtn.addEventListener("click", () => {
+  closeBtn.onclick = () => {
     popup.style.display = "none";
-  });
-
+  };
 });
 </script>
 
