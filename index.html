@@ -292,8 +292,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const popup = document.getElementById("sponsor-popup");
   const closeBtn = document.getElementById("close-popup");
 
+  // 每次進站強制重置
   popup.style.display = "flex";
+  popup.style.opacity = "1";
+  popup.style.visibility = "visible";
 
+  // 關閉
   closeBtn.onclick = () => {
     popup.style.display = "none";
   };

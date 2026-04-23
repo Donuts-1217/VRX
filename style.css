@@ -833,14 +833,14 @@ footer {
   }
 }
 
-#sponsor-popup {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.88);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
+#sponsor-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.88);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999999;
 }
 
 .sponsor-box {
