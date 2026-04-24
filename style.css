@@ -841,7 +841,7 @@ footer {
   align-items: center;
   z-index: 999999;
 
-  display: none;   /* 重點 */
+    /* 重點 */
 }
 
 .sponsor-box {
