@@ -294,20 +294,14 @@ function showPopup() {
 
   if (!popup || !closeBtn) return;
 
-  // 每次都強制重置
   popup.style.display = "flex";
-  popup.style.opacity = "1";
-  popup.style.visibility = "visible";
 
   closeBtn.onclick = () => {
     popup.style.display = "none";
   };
 }
 
-// 第一次載入
 document.addEventListener("DOMContentLoaded", showPopup);
-
-// F5 / 返回快取頁面 / bfcache
 window.addEventListener("pageshow", showPopup);
 </script>
 
