@@ -917,34 +917,33 @@ footer {
   }
 }
 
-/* 按鈕容器，負責置中 */
+/* 縮小容器間距 */
 .cta-container {
-  margin-top: 50px;
-  padding-bottom: 40px;
+  margin-top: 20px;       /* 減少與上方卡片的距離 */
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-/* 官網大按鈕樣式 */
+/* 讓按鈕變精簡 */
 .enter-site-btn {
   display: inline-block;
-  padding: 15px 45px;
-  font-size: 20px;
+  padding: 10px 30px;    /* 縮小內距，讓按鈕變扁一點 */
+  font-size: 16px;       /* 稍微調小字體 */
   font-weight: bold;
+  color: #ffffff;
   text-decoration: none;
-  color: #fff;
   
-  /* 使用你原本的主色調 */
   background: linear-gradient(135deg, #ff003c, #6a00ff);
-  border-radius: 50px;
+  border-radius: 30px;   /* 圓角也隨之調小 */
   
-  /* 增加發光效果 */
-  box-shadow: 0 0 20px rgba(255, 0, 60, 0.4);
+  box-shadow: 0 0 12px rgba(255, 0, 60, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* 滑過動畫 */
+/* 滑過效果保持精簡 */
 .enter-site-btn:hover {
-  transform: scale(1.05) translateY(-3px);
-  box-shadow: 0 0 30px rgba(106, 0, 255, 0.7);
-  letter-spacing: 2px; /* 增加一點點字距感 */
+  transform: translateY(-2px); /* 移動幅度減小 */
+  box-shadow: 0 0 20px rgba(106, 0, 255, 0.6);
+  filter: brightness(1.1);
 }
