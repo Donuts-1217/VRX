@@ -288,21 +288,35 @@ window.addEventListener("load", () => {
 </script>
 
 <script>
-function showPopup() {
+function forcePopup() {
   const popup = document.getElementById("sponsor-popup");
   const closeBtn = document.getElementById("close-popup");
 
   if (!popup || !closeBtn) return;
 
   popup.style.display = "flex";
+  popup.style.opacity = "1";
+  popup.style.visibility = "visible";
 
   closeBtn.onclick = () => {
     popup.style.display = "none";
   };
 }
 
-document.addEventListener("DOMContentLoaded", showPopup);
-window.addEventListener("pageshow", showPopup);
+/* HTML完成先跑一次 */
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(forcePopup, 200);
+});
+
+/* 所有資源載入完再補一次 */
+window.addEventListener("load", () => {
+  setTimeout(forcePopup, 500);
+});
+
+/* 瀏覽器快取返回頁面 */
+window.addEventListener("pageshow", () => {
+  setTimeout(forcePopup, 200);
+});
 </script>
 
 
