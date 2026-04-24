@@ -834,14 +834,13 @@ footer {
 }
 
 #sponsor-popup{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.9);
-  justify-content: center;
-  align-items: center;
-  z-index: 999999;
-
-  display: none;   /* 重點 */
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.88);
+  justify-content:center;
+  align-items:center;
+  z-index:999999;
 }
 
 .sponsor-box {
