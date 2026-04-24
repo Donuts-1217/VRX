@@ -288,20 +288,27 @@ window.addEventListener("load", () => {
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+function showPopup() {
   const popup = document.getElementById("sponsor-popup");
   const closeBtn = document.getElementById("close-popup");
 
-  // 每次進站強制重置
+  if (!popup || !closeBtn) return;
+
+  // 每次都強制重置
   popup.style.display = "flex";
   popup.style.opacity = "1";
   popup.style.visibility = "visible";
 
-  // 關閉
   closeBtn.onclick = () => {
     popup.style.display = "none";
   };
-});
+}
+
+// 第一次載入
+document.addEventListener("DOMContentLoaded", showPopup);
+
+// F5 / 返回快取頁面 / bfcache
+window.addEventListener("pageshow", showPopup);
 </script>
 
 
